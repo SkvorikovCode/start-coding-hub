@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфографика: Полный курс по React для начинающих</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A202C;
+            color: #E2E8F0;
+        }
+        .brand-gradient {
+            background: linear-gradient(90deg, #6675FF, #00E0F0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #2D3748;
+            border: 1px solid #4A5568;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00F0B5;
+            border: 4px solid #4A5568;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #4A5568;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black brand-gradient mb-4">Ваш путь в мир React</h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+                Визуальная дорожная карта полного курса по React для начинающих. От настройки окружения до создания первого полноценного приложения.
+            </p>
+        </header>
+
+        <main>
+
+            <section id="preparation" class="my-16">
+                <h2 class="text-3xl font-bold text-center mb-8"><span class="text-[#00F0B5]">1.</span> Подготовка к старту</h2>
+                <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Прежде чем погрузиться в код, убедитесь, что у вас есть все необходимые инструменты. Это ваш стартовый набор для успешного путешествия.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="card rounded-xl p-6 transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl mb-4">💻</div>
+                        <h3 class="text-xl font-bold text-white">Редактор кода</h3>
+                        <p class="text-slate-400">VS Code — отраслевой стандарт с тысячами полезных расширений.</p>
+                    </div>
+                    <div class="card rounded-xl p-6 transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl mb-4">⚙️</div>
+                        <h3 class="text-xl font-bold text-white">Node.js и NPM</h3>
+                        <p class="text-slate-400">Среда выполнения и менеджер пакетов для управления зависимостями.</p>
+                    </div>
+                    <div class="card rounded-xl p-6 transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl mb-4">🔍</div>
+                        <h3 class="text-xl font-bold text-white">React Dev Tools</h3>
+                        <p class="text-slate-400">Расширение для браузера, незаменимое для отладки компонентов.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="course-map" class="my-24">
+                <h2 class="text-3xl font-bold text-center mb-16"><span class="text-[#00E0F0]">2.</span> Карта курса: от основ к проекту</h2>
+                <div class="relative pl-8">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="mb-16 timeline-item relative">
+                        <h3 class="text-2xl font-bold text-[#00E0F0] mb-4">Модуль 1: Знакомство и первые шаги</h3>
+                        <p class="text-slate-300 mb-6">Закладываем фундамент. Здесь вы познакомитесь с базовым синтаксисом и основной концепцией React — компонентным подходом.</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            <span class="bg-[#6675FF] text-white font-semibold py-1 px-3 rounded-full">Введение в React</span>
+                            <span class="bg-[#6675FF] text-white font-semibold py-1 px-3 rounded-full">Настройка Vite</span>
+                            <span class="bg-[#6675FF] text-white font-semibold py-1 px-3 rounded-full">Компоненты и JSX</span>
+                            <span class="bg-[#6675FF] text-white font-semibold py-1 px-3 rounded-full">Props (Свойства)</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-16 timeline-item relative">
+                        <h3 class="text-2xl font-bold text-[#9C82FF] mb-4">Модуль 2: Управление данными и интерактивность</h3>
+                        <p class="text-slate-300 mb-6">Оживляем наши приложения. Вы научитесь управлять состоянием, реагировать на действия пользователя и динамически отображать данные.</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            <span class="bg-[#9C82FF] text-white font-semibold py-1 px-3 rounded-full">State и useState</span>
+                            <span class="bg-[#9C82FF] text-white font-semibold py-1 px-3 rounded-full">Обработка событий</span>
+                            <span class="bg-[#9C82FF] text-white font-semibold py-1 px-3 rounded-full">Условный рендеринг</span>
+                            <span class="bg-[#9C82FF] text-white font-semibold py-1 px-3 rounded-full">Работа со списками</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item relative">
+                        <h3 class="text-2xl font-bold text-[#FF579F] mb-4">Модуль 3: Продвинутые концепции</h3>
+                        <p class="text-slate-300 mb-6">Выходим на новый уровень. Здесь вы освоите хуки для побочных эффектов, маршрутизацию, работу с формами и запросы к внешним API.</p>
+                         <div class="flex flex-wrap gap-3 text-sm">
+                            <span class="bg-[#FF579F] text-white font-semibold py-1 px-3 rounded-full">Хук useEffect</span>
+                            <span class="bg-[#FF579F] text-white font-semibold py-1 px-3 rounded-full">React Router</span>
+                            <span class="bg-[#FF579F] text-white font-semibold py-1 px-3 rounded-full">Работа с формами</span>
+                            <span class="bg-[#FF579F] text-white font-semibold py-1 px-3 rounded-full">Запросы к API</span>
+                            <span class="bg-green-500 text-white font-bold py-1 px-3 rounded-full">Финальный проект</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="data-insights" class="my-24">
+                <h2 class="text-3xl font-bold text-center mb-16"><span class="text-[#6675FF]">3.</span> Курс в цифрах</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white text-center mb-4">Структура курса по модулям</h3>
+                        <p class="text-center text-slate-400 mb-6 text-sm">Курс сбалансирован так, чтобы постепенно наращивать сложность, уделяя равное внимание основам и интерактивности, с последующим углублением в продвинутые темы.</p>
+                        <div class="chart-container">
+                            <canvas id="courseStructureChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white text-center mb-4">Популярность Frontend-технологий</h3>
+                        <p class="text-center text-slate-400 mb-6 text-sm">Изучение React — это инвестиция в востребованные навыки. Он стабильно занимает лидирующие позиции на рынке, что подтверждается опросами разработчиков.</p>
+                        <div class="chart-container">
+                            <canvas id="frameworkPopularityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="final-project" class="my-24 text-center">
+                 <h2 class="text-3xl font-bold text-center mb-8"><span class="text-[#FF579F]">4.</span> Финальный проект: To-Do List</h2>
+                 <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-8">
+                    Кульминация вашего обучения — создание классического приложения "Список дел". Этот проект позволит вам собрать воедино все полученные знания и создать первое интерактивное React-приложение.
+                </p>
+                <div class="card max-w-2xl mx-auto rounded-xl p-8">
+                    <h4 class="text-xl font-bold text-white mb-4">Закрепляемые навыки:</h4>
+                    <ul class="text-left space-y-2 text-slate-300 list-inside">
+                        <li class="flex items-center"><span class="text-[#00F0B5] mr-3">✓</span>Создание и композиция компонентов</li>
+                        <li class="flex items-center"><span class="text-[#00F0B5] mr-3">✓</span>Управление состоянием (добавление, удаление, отметка дел)</li>
+                        <li class="flex items-center"><span class="text-[#00F0B5] mr-3">✓</span>Обработка пользовательских событий (клики, ввод текста)</li>
+                        <li class="flex items-center"><span class="text-[#00F0B5] mr-3">✓</span>Рендеринг списков на основе данных в состоянии</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 mb-8">
+            <p class="text-slate-500">Начните свой путь в веб-разработке сегодня!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 < maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const defaultChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#E2E8F0',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    titleFont: {
+                        family: "'Inter', sans-serif",
+                    },
+                    bodyFont: {
+                        family: "'Inter', sans-serif",
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#94A3B8' },
+                    grid: { color: '#4A5568' }
+                },
+                y: {
+                    ticks: { color: '#94A3B8' },
+                    grid: { color: '#4A5568' }
+                }
+            }
+        };
+
+        const courseStructureCtx = document.getElementById('courseStructureChart').getContext('2d');
+        new Chart(courseStructureCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Модуль 1: Основы', 'Модуль 2: Интерактивность', 'Модуль 3: Продвинутые темы'],
+                datasets: [{
+                    label: 'Количество уроков',
+                    data: [4, 4, 5],
+                    backgroundColor: [
+                        '#00E0F0',
+                        '#9C82FF',
+                        '#FF579F'
+                    ],
+                    borderColor: '#2D3748',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                }
+            }
+        });
+
+        const frameworkPopularityCtx = document.getElementById('frameworkPopularityChart').getContext('2d');
+        new Chart(frameworkPopularityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['React', 'Angular', 'Vue.js', 'Svelte', 'SolidJS'],
+                datasets: [{
+                    label: 'Удовлетворенность разработчиков (%)',
+                    data: [84, 55, 68, 75, 90],
+                    backgroundColor: [
+                        '#00F0B5',
+                        '#FF579F',
+                        '#00E0F0',
+                        '#FF8C42',
+                        '#6675FF'
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    ...defaultChartOptions.plugins,
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        ...defaultChartOptions.scales.x,
+                        title: {
+                            display: true,
+                            text: 'Удовлетворенность, %',
+                            color: '#94A3B8'
+                        }
+                    },
+                    y: {
+                        ...defaultChartOptions.scales.y
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
